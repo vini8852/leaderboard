@@ -1,0 +1,34 @@
+<div class="leaderboard-container">
+  <div class="row app-title">
+    Leaderboard App
+  </div>
+  <div class="row add-button">
+    <button class="btn add-leader">Add Leader</button>
+  </div>
+  <div class="row leaderboard-lists-containers">
+    <div class="col-sm-6 leaderboard-list-1">
+      <div class="row list-item leaderboard-list-item" *ngFor="let item of itemList">
+        <div class="col-sm-6 leader-name">
+          {{item.name}}
+        </div>
+        <div class="col-sm-4 leader-points">{{item.points}}</div>
+        <div class="col-sm-2 row leader-actions">
+          <button class="col-sm-6 button-style" (click)="increamentPoints($event,item.id)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          <button class="col-sm-6 button-style" (click)="decreamentPoints(item.id)"><i class="fa fa-minus" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 leaderboard-list-2">
+      <div class="row list-item leaderboard-list-item" *ngFor="let item of itemList">
+        <div class="col-sm-6 leader-name">
+          {{item.name}}
+        </div>
+        <div class="col-sm-4 leader-points">{{item.points}}</div>
+        <div class="col-sm-2 row leader-actions">
+          <button class="col-sm-6 button-style" (click)="increamentPoints($event,item.id)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          <button class="col-sm-6 button-style" (click)="decreamentPoints(item.id)"><i class="fa fa-minus" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
