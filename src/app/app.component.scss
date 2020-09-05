@@ -1,6 +1,47 @@
-.background-container   {
-    height:100vh;
-    background-image:url("../assets/background.jpg");
-    background-repeat: no-repeat;
-    background-size:cover;
+.leaderboard-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 5%;
+    .app-title{
+        font-weight: 800;
+        margin-bottom: 24px;
+    }
+    .app-title,.add-button{
+        justify-content: center;
+    }
+    .leaderboard-lists-containers{
+        margin:auto;
+        width:50%;
+    }
+    .leaderboard-list-1,.leaderboard-list-2{
+        border: 1px solid black;
+        padding: 20px 40px;
+        flex: 0 0 48%;
+        margin: 1%;
+        .leaderboard-list-item{
+            border: 1px solid black;
+            padding: 8px 0;
+            margin-bottom: 8px;
+            align-items:center;
+            .leader-actions{
+                padding-right:0px;
+                i{
+                    padding:0 4px;
+                }
+            }
+        }
+    }
+}
+.btn{
+    background:#80808059;
+    font-weight: 500;
+}
+.leaderboard-add-leader-container{
+    flex-direction: column;
+    width: 25%;
+    margin: auto;
+    .btn{
+        margin-top:32px;
+    }
 }

@@ -2,33 +2,39 @@
   <div class="row app-title">
     Leaderboard App
   </div>
-  <div class="row add-button">
-    <button class="btn add-leader">Add Leader</button>
+  <div class="row add-button" *ngIf="!showAddLeaderView">
+    <button class="btn" (click)="showAddLederForm()">Add Leader</button>
   </div>
-  <div class="row leaderboard-lists-containers">
-    <div class="col-sm-6 leaderboard-list-1">
+  <div class="row leaderboard-lists-containers" *ngIf="!showAddLeaderView">
+    <div class="col-sm-6 leaderboard-list-1" *ngIf="itemList.length>0">
       <div class="row list-item leaderboard-list-item" *ngFor="let item of itemList">
         <div class="col-sm-6 leader-name">
           {{item.name}}
         </div>
-        <div class="col-sm-4 leader-points">{{item.points}}</div>
-        <div class="col-sm-2 row leader-actions">
-          <button class="col-sm-6 button-style" (click)="increamentPoints($event,item.id)"><i class="fa fa-plus" aria-hidden="true"></i></button>
-          <button class="col-sm-6 button-style" (click)="decreamentPoints(item.id)"><i class="fa fa-minus" aria-hidden="true"></i></button>
+        <div class="col-sm-3 leader-points">{{item.points}}</div>
+        <div class="col-sm-3 row leader-actions">
+          <i class="fa fa-plus" (click)="increamentPoints(item.id)" aria-hidden="true"></i>
+          <i class="fa fa-minus" (click)="decreamentPoints(item.id)" aria-hidden="true"></i>
         </div>
       </div>
     </div>
-    <div class="col-sm-6 leaderboard-list-2">
+    <div class="col-sm-6 leaderboard-list-2" *ngIf="itemList.length>0">
       <div class="row list-item leaderboard-list-item" *ngFor="let item of itemList">
         <div class="col-sm-6 leader-name">
           {{item.name}}
         </div>
-        <div class="col-sm-4 leader-points">{{item.points}}</div>
-        <div class="col-sm-2 row leader-actions">
-          <button class="col-sm-6 button-style" (click)="increamentPoints($event,item.id)"><i class="fa fa-plus" aria-hidden="true"></i></button>
-          <button class="col-sm-6 button-style" (click)="decreamentPoints(item.id)"><i class="fa fa-minus" aria-hidden="true"></i></button>
+        <div class="col-sm-3 leader-points">{{item.points}}</div>
+        <div class="col-sm-3 row leader-actions">
+          <i class="fa fa-plus" (click)="increamentPoints($event,item.id)" aria-hidden="true"></i>
+          <i class="fa fa-minus" (click)="decreamentPoints(item.id)" aria-hidden="true"></i>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="row leaderboard-add-leader-container" *ngIf="showAddLeaderView">
+    <label for="leaderName">Leader Name</label>
+    <input type="text" [(ngModel)] = "leaderName"/>
+    <button class="btn" (click)="addLeader()">Add Leader</button>
   </div>
 </div>
